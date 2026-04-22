@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inspiration Travel | Event Details</title>
-
   <style>
     :root {
       --navy: #163a70;
+      --gold: #caa85c;
       --bg: #f7f8fb;
       --text: #1f2937;
       --muted: #6b7280;
@@ -61,10 +61,10 @@
       margin-top: 0;
     }
 
-   h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
 
     .hero-intro {
       max-width: 100%;
@@ -97,6 +97,7 @@
       font-size: 12px;
       text-transform: uppercase;
       margin-bottom: 6px;
+      letter-spacing: .06em;
     }
 
     .meta-card span {
@@ -110,16 +111,17 @@
       gap: 22px;
     }
 
+    .main-column > .section + .section,
+    .side-column > .section + .section {
+      margin-top: 22px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,.04);
-    }
-
-    .section + .section {
-      margin-top: 22px;
     }
 
     ul {
@@ -165,44 +167,40 @@
       font-size: 14px;
     }
 
-    .table-wrap {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+    /* Itinerary cards */
+    .itinerary-cards {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
 
-.itinerary-table {
-  width: 100%;
-  min-width: 700px;
-  border-collapse: collapse;
-  margin-top: 12px;
-  background: white;
-}
+    .itinerary-stop {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #f9fafb;
+    }
 
-.itinerary-table th,
-.itinerary-table td {
-  border: 1px solid #e5e7eb;
-  padding: 12px 14px;
-  text-align: left;
-  vertical-align: top;
-}
+    .itinerary-stop h3 {
+      margin: 10px 0 10px;
+      color: var(--navy);
+      font-size: 18px;
+    }
 
-.itinerary-table th {
-  background: #f9fafb;
-  color: #163a70;
-  font-size: 14px;
-}
+    .itinerary-stop p {
+      margin: 6px 0;
+    }
 
-.itinerary-table td:first-child {
-  font-weight: bold;
-  width: 70px;
-  text-align: center;
-}
+    .day-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
 
-.itinerary-table td:nth-child(2) {
-  min-width: 320px;
-}
     footer {
       padding: 28px 20px 50px;
       color: var(--muted);
@@ -229,15 +227,11 @@
       }
     }
 
-   @media (max-width: 600px) {
-  .table-wrap {
-    overflow-x: auto;
-  }
-
-  .itinerary-table {
-    min-width: 700px;
-  }
-}
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
 
       .hero .page-wrap {
         padding-top: 32px;
@@ -256,12 +250,15 @@
 
       .card,
       .meta-card,
-      .notice {
+      .notice,
+      .itinerary-stop {
         padding: 16px;
+        border-radius: 12px;
       }
 
       h1 {
         font-size: 28px;
+        line-height: 1.2;
       }
 
       .hero-intro {
@@ -278,17 +275,12 @@
     }
   </style>
 </head>
-
 <body>
   <header class="hero">
     <div class="page-wrap">
       <div class="eyebrow">Inspiration Travel Event Page</div>
-
       <h1>InGrace Ministries Cruise with Jim Scudder, Bruce Malone & Answers in Genesis</h1>
-
-      <p class="hero-intro">
-        We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.
-      </p>
+      <p class="hero-intro">We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
     </div>
   </header>
 
@@ -352,81 +344,70 @@
             <h2>Itinerary</h2>
             <p class="small">*Subject to change</p>
 
-            <div class="table-wrap">
-              <table class="itinerary-table">
-                <tr>
-                  <th>Day</th>
-                  <th>Location</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Arrive</th>
-                  <th>Depart</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Departing from Seattle, Washington with Scenic Cruising Puget Sound</td>
-                  <td>5/23/2026</td>
-                  <td>5/23/2026</td>
-                  <td></td>
-                  <td>03:00 PM</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Day at Sea</td>
-                  <td>5/24/2026</td>
-                  <td>5/24/2026</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Juneau, Alaska with Scenic Cruising Stephens Passage</td>
-                  <td>5/25/2026</td>
-                  <td>5/25/2026</td>
-                  <td>12:30 PM</td>
-                  <td>10:00 PM</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Scenic Cruising Hubbard Glacier</td>
-                  <td>5/26/2026</td>
-                  <td>5/26/2026</td>
-                  <td>02:00 PM</td>
-                  <td>06:00 PM</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Sitka, Alaska</td>
-                  <td>5/27/2026</td>
-                  <td>5/27/2026</td>
-                  <td>08:00 AM</td>
-                  <td>04:00 PM</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Ketchikan, Alaska</td>
-                  <td>5/28/2026</td>
-                  <td>5/28/2026</td>
-                  <td>06:30 AM</td>
-                  <td>01:00 PM</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Victoria, British Columbia, Canada</td>
-                  <td>5/29/2026</td>
-                  <td>5/29/2026</td>
-                  <td>08:00 PM</td>
-                  <td>11:59 PM</td>
-                </tr>
-                <tr>
-                  <td>→</td>
-                  <td>Concluding in Seattle, Washington</td>
-                  <td>5/30/2026</td>
-                  <td>5/30/2026</td>
-                  <td>07:00 AM</td>
-                  <td></td>
-                </tr>
-              </table>
+            <div class="itinerary-cards">
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 1</div>
+                <h3>Departing from Seattle, Washington</h3>
+                <p><strong>Date:</strong> 5/23/2026</p>
+                <p><strong>Details:</strong> Scenic Cruising Puget Sound</p>
+                <p><strong>Depart:</strong> 03:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 2</div>
+                <h3>Day at Sea</h3>
+                <p><strong>Date:</strong> 5/24/2026</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 3</div>
+                <h3>Juneau, Alaska</h3>
+                <p><strong>Date:</strong> 5/25/2026</p>
+                <p><strong>Details:</strong> Scenic Cruising Stephens Passage</p>
+                <p><strong>Arrive:</strong> 12:30 PM</p>
+                <p><strong>Depart:</strong> 10:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 4</div>
+                <h3>Scenic Cruising Hubbard Glacier</h3>
+                <p><strong>Date:</strong> 5/26/2026</p>
+                <p><strong>Arrive:</strong> 02:00 PM</p>
+                <p><strong>Depart:</strong> 06:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 5</div>
+                <h3>Sitka, Alaska</h3>
+                <p><strong>Date:</strong> 5/27/2026</p>
+                <p><strong>Arrive:</strong> 08:00 AM</p>
+                <p><strong>Depart:</strong> 04:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 6</div>
+                <h3>Ketchikan, Alaska</h3>
+                <p><strong>Date:</strong> 5/28/2026</p>
+                <p><strong>Arrive:</strong> 06:30 AM</p>
+                <p><strong>Depart:</strong> 01:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 7</div>
+                <h3>Victoria, British Columbia, Canada</h3>
+                <p><strong>Date:</strong> 5/29/2026</p>
+                <p><strong>Arrive:</strong> 08:00 PM</p>
+                <p><strong>Depart:</strong> 11:59 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Final Day</div>
+                <h3>Concluding in Seattle, Washington</h3>
+                <p><strong>Date:</strong> 5/30/2026</p>
+                <p><strong>Arrive:</strong> 07:00 AM</p>
+              </div>
+
             </div>
           </section>
 
