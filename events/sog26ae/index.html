@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspiration Travel | Event Details</title>
+  <style>
+    :root {
+      --navy: #163a70;
+      --gold: #caa85c;
+      --bg: #f7f8fb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --line: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(22,58,112,.95), rgba(22,58,112,.8));
+      color: white;
+      width: 100%;
+    }
+
+    .page-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero .page-wrap {
+      padding-top: 56px;
+      padding-bottom: 36px;
+    }
+
+    main .page-wrap {
+      padding-top: 28px;
+      padding-bottom: 48px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+      opacity: .85;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero-intro {
+      max-width: 100%;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .summary-card {
+      margin-bottom: 22px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .meta-card {
+      background: #f9fafb;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      color: black;
+    }
+
+    .meta-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: .06em;
+    }
+
+    .meta-card span {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+    }
+
+    .main-column > .section + .section,
+    .side-column > .section + .section {
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .button-group a {
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+
+    .notice {
+      background: #fff8eb;
+      border: 1px solid #f2dfb6;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .itinerary-cards {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .itinerary-stop {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #f9fafb;
+    }
+
+    .itinerary-stop h3 {
+      margin: 10px 0 10px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .itinerary-stop p {
+      margin: 6px 0;
+    }
+
+    .day-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    footer {
+      padding: 28px 20px 50px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero .page-wrap {
+        padding-top: 32px;
+        padding-bottom: 24px;
+      }
+
+      main .page-wrap {
+        padding-top: 20px;
+        padding-bottom: 32px;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .card,
+      .meta-card,
+      .notice,
+      .itinerary-stop {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .hero-intro {
+        font-size: 16px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .button-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="page-wrap">
+      <div class="eyebrow">Inspiration Travel Event Page</div>
+      <h1>Seeds of Greatness Alaska Cruise with Jerome & Lisa Lewis</h1>
+      <p class="hero-intro">We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap">
+
+      <section class="card summary-card">
+        <div class="meta">
+          <div class="meta-card">
+            <strong>Event Code</strong>
+            <span>SOG26AE</span>
+          </div>
+          <div class="meta-card">
+            <strong>Sailing Dates</strong>
+            <span>June 6-13, 2026</span>
+          </div>
+          <div class="meta-card">
+            <strong>Ship</strong>
+            <span>Eurodam - Holland America</span>
+          </div>
+          <div class="meta-card">
+            <strong>Embarkation Port</strong>
+            <span>Seattle, WA</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <div class="main-column">
+
+          <section class="card section">
+            <h2>What You Need Right Now</h2>
+            <ul>
+              <li>Make sure you write down your Inspiration & Cruise Booking Numbers.</li>
+              <li>Review passport and travel documentation requirements.</li>
+              <li>Note your final payment date.</li>
+              <li>Watch for upcoming pre-departure emails from Inspiration Travel.</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Important Dates</h2>
+            <ul>
+              <li><strong>Final Payment Due:</strong> March 3, 2026</li>
+              <li><strong>Cruise Check-in starts:</strong> May 6, 2026</li>
+              <li><strong>Embarkation Day:</strong> June 6, 2026</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Travel Preparation</h2>
+            <ul>
+              <li>Check travel document requirements.</li>
+              <li>Review packing recommendations for weather, excursions, and evening dining.</li>
+              <li>Start planning for excursions, pre/post hotel accommodations, and transfers.</li>
+              <li>Review Terms and Conditions.</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Itinerary</h2>
+            <p class="small">*Subject to change</p>
+
+            <div class="itinerary-cards">
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 1</div>
+                <h3>Departing from Seattle, Washington with Scenic Cruising Puget Sound</h3>
+                <p><strong>Date:</strong> 6/6/2026</p>
+                <p><strong>Depart:</strong> 03:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 2</div>
+                <h3>Day at Sea</h3>
+                <p><strong>Date:</strong> 6/7/2026</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 3</div>
+                <h3>Juneau, Alaska with Scenic Cruising Stephens Passage</h3>
+                <p><strong>Date:</strong> 6/8/2026</p>
+                <p><strong>Arrive:</strong> 06:00 PM</p>
+                <p><strong>Depart:</strong> 10:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 4</div>
+                <h3>San Juan, Puerto Rico</h3>
+                <p><strong>Date:</strong> 4/29/2026</p>
+                <p><strong>Arrive:</strong> 08:30 AM</p>
+                <p><strong>Depart:</strong> 03:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 5</div>
+                <h3>Grand Turk, Turks and Caicos</h3>
+                <p><strong>Date:</strong> 4/30/2026</p>
+                <p><strong>Arrive:</strong> 11:30 AM</p>
+                <p><strong>Depart:</strong> 07:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 6</div>
+                <h3>Day at Sea</h3>
+                <p><strong>Date:</strong> 5/1/2026</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Day 7</div>
+                <h3>Perfect Day at CocoCay, Bahamas</h3>
+                <p><strong>Date:</strong> 5/2/2026</p>
+                <p><strong>Arrive:</strong> 08:00 AM</p>
+                <p><strong>Depart:</strong> 05:00 PM</p>
+              </div>
+
+              <div class="itinerary-stop">
+                <div class="day-badge">Final Day</div>
+                <h3>Concluding in Miami, Florida</h3>
+                <p><strong>Date:</strong> 5/3/2026</p>
+                <p><strong>Arrive:</strong> 07:00 AM</p>
+              </div>
+
+            </div>
+          </section>
+
+          <section class="card section">
+            <h2>Helpful Links</h2>
+            <div class="button-group">
+              <a class="button" href="https://www.inspirationtravel.com/login" target="_blank">Manage Booking</a>
+              <a class="button secondary" href="#" target="_blank">Required Travel Documents</a>
+              <a class="button secondary" href="#" target="_blank">Excursions</a>
+              <a class="button secondary" href="#" target="_blank">Inspiration Guides</a>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="side-column">
+          <section class="card section">
+            <h3>Need Assistance?</h3>
+            <p>Our team is here to help as you prepare for your journey.</p>
+            <p><strong>Email:</strong> booking@inspirationtravel.com<br />
+            <strong>Phone:</strong> +1 800 247 1899</p>
+            <p class="small">Business hours: Mon - Fri 8:30a - 5:00p PT</p>
+          </section>
+
+          <section class="notice section">
+            <h3>Important Note</h3>
+            <p class="small">This page is intended for general event details only and information is subject to change.</p>
+          </section>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    Inspiration Travel • Event Information Page
+  </footer>
+</body>
+</html>
