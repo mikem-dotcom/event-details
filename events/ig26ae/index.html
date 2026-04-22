@@ -28,24 +28,13 @@
     .hero {
       background: linear-gradient(135deg, rgba(22,58,112,.95), rgba(22,58,112,.8));
       color: white;
+      padding: 56px 20px 36px;
     }
 
-    .page-wrap {
+    .container {
       max-width: 1000px;
       margin: 0 auto;
       width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .hero .page-wrap {
-      padding-top: 56px;
-      padding-bottom: 36px;
-    }
-
-    main .page-wrap {
-      padding-top: 28px;
-      padding-bottom: 48px;
     }
 
     .eyebrow {
@@ -71,9 +60,10 @@
       font-size: 18px;
     }
 
+    /* 2 x 2 TOP SECTION */
     .meta {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       margin-top: 24px;
     }
@@ -99,6 +89,10 @@
     .meta-card span {
       font-size: 16px;
       font-weight: 600;
+    }
+
+    main {
+      padding: 28px 20px 48px;
     }
 
     .grid {
@@ -216,23 +210,25 @@
     }
 
     @media (max-width: 600px) {
-      .page-wrap {
-        padding-left: 16px;
-        padding-right: 16px;
+      .hero {
+        padding: 32px 16px 24px;
       }
 
-      .hero .page-wrap {
-        padding-top: 32px;
-        padding-bottom: 24px;
+      main {
+        padding: 20px 16px 32px;
       }
 
-      main .page-wrap {
-        padding-top: 20px;
-        padding-bottom: 32px;
+      .container {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
       }
 
       .meta {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
@@ -260,11 +256,17 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 420px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="page-wrap">
+    <div class="container">
       <div class="eyebrow">Inspiration Travel Event Page</div>
       <h1>InGrace Ministries Cruise with Jim Scudder, Bruce Malone & Answers in Genesis</h1>
       <p>We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
@@ -291,7 +293,7 @@
   </header>
 
   <main>
-    <div class="page-wrap grid">
+    <div class="container grid">
       <div>
         <section class="card section">
           <h2>What You Need Right Now</h2>
