@@ -25,20 +25,18 @@
       line-height: 1.5;
     }
 
-    /* FULL-WIDTH BLUE BACKGROUND */
     .hero {
       background: linear-gradient(135deg, rgba(22,58,112,.95), rgba(22,58,112,.8));
       color: white;
       width: 100%;
     }
 
-    /* SAME WRAPPER FOR HEADER + MAIN */
     .page-wrap {
       max-width: 1000px;
       margin: 0 auto;
+      width: 100%;
       padding-left: 20px;
       padding-right: 20px;
-      width: 100%;
     }
 
     .hero .page-wrap {
@@ -68,22 +66,46 @@
       margin-bottom: 10px;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin-bottom: 0;
+    .hero-intro {
+      max-width: 760px;
       font-size: 18px;
+      margin: 0;
     }
 
-    /* TOP INFO ROW */
+    /* MAIN GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+    }
+
+    .main-column > .section + .section,
+    .side-column > .section + .section {
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+
+    /* SUMMARY CARD */
+    .summary-card {
+      margin-bottom: 22px;
+    }
+
     .meta {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 0;
     }
 
     .meta-card {
-      background: white;
+      background: #f9fafb;
       border: 1px solid #e5e7eb;
       border-radius: 14px;
       padding: 16px;
@@ -103,24 +125,6 @@
     .meta-card span {
       font-size: 16px;
       font-weight: 600;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.04);
-    }
-
-    .section + .section {
-      margin-top: 22px;
     }
 
     ul {
@@ -217,6 +221,10 @@
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 600px) {
@@ -252,7 +260,7 @@
         line-height: 1.2;
       }
 
-      .hero p {
+      .hero-intro {
         font-size: 16px;
       }
 
@@ -271,168 +279,173 @@
     <div class="page-wrap">
       <div class="eyebrow">Inspiration Travel Event Page</div>
       <h1>InGrace Ministries Cruise with Jim Scudder, Bruce Malone & Answers in Genesis</h1>
-      <p>We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
-
-      <div class="meta">
-        <div class="meta-card">
-          <strong>Event Code</strong>
-          <span>IG26AE</span>
-        </div>
-        <div class="meta-card">
-          <strong>Sailing Dates</strong>
-          <span>June 14–21, 2026</span>
-        </div>
-        <div class="meta-card">
-          <strong>Ship</strong>
-          <span>Beyond</span>
-        </div>
-        <div class="meta-card">
-          <strong>Embarkation Port</strong>
-          <span>Seattle, Washington</span>
-        </div>
-      </div>
+      <p class="hero-intro">We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
     </div>
   </header>
 
   <main>
-    <div class="page-wrap grid">
-      <div>
-        <section class="card section">
-          <h2>What You Need Right Now</h2>
-          <ul>
-            <li>Make sure you write down your Inspiration & Cruise Booking Numbers.</li>
-            <li>Review passport and travel documentation requirements.</li>
-            <li>Note your final payment date.</li>
-            <li>Watch for upcoming pre-departure emails from Inspiration Travel. Make sure you provide Inspiration with a working email and confirm you can receive our emails as they sometimes go to spam first.</li>
-          </ul>
-        </section>
+    <div class="page-wrap">
 
-        <section class="card section">
-          <h2>Important Dates</h2>
-          <ul>
-            <li><strong>Final Payment Due:</strong> May 18, 2026</li>
-            <li><strong>Cruise Check-in starts:</strong> May 14, 2026</li>
-            <li><strong>Embarkation Day:</strong> June 14, 2026</li>
-          </ul>
-        </section>
-
-        <section class="card section">
-          <h2>Travel Preparation</h2>
-          <ul>
-            <li>Check travel document requirements.</li>
-            <li>Review packing recommendations for weather, excursions, and evening dining.</li>
-            <li>Start planning for excursions, pre/post hotel accommodations, and transfers.</li>
-            <li>Review Terms and Conditions.</li>
-          </ul>
-        </section>
-
-        <section class="card section">
-          <h2>Itinerary</h2>
-          <p class="small">*Subject to change</p>
-
-          <div class="table-wrap">
-            <table class="itinerary-table">
-              <tr>
-                <th>Day</th>
-                <th>Location</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Arrive</th>
-                <th>Depart</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Departing from Seattle, Washington with Scenic Cruising Puget Sound</td>
-                <td>5/23/2026</td>
-                <td>5/23/2026</td>
-                <td></td>
-                <td>03:00 PM</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Day at Sea</td>
-                <td>5/24/2026</td>
-                <td>5/24/2026</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Juneau, Alaska with Scenic Cruising Stephens Passage</td>
-                <td>5/25/2026</td>
-                <td>5/25/2026</td>
-                <td>12:30 PM</td>
-                <td>10:00 PM</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Scenic Cruising Hubbard Glacier</td>
-                <td>5/26/2026</td>
-                <td>5/26/2026</td>
-                <td>02:00 PM</td>
-                <td>06:00 PM</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Sitka, Alaska</td>
-                <td>5/27/2026</td>
-                <td>5/27/2026</td>
-                <td>08:00 AM</td>
-                <td>04:00 PM</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Ketchikan, Alaska</td>
-                <td>5/28/2026</td>
-                <td>5/28/2026</td>
-                <td>06:30 AM</td>
-                <td>01:00 PM</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>Victoria, British Columbia, Canada</td>
-                <td>5/29/2026</td>
-                <td>5/29/2026</td>
-                <td>08:00 PM</td>
-                <td>11:59 PM</td>
-              </tr>
-              <tr>
-                <td>→</td>
-                <td>Concluding in Seattle, Washington</td>
-                <td>5/30/2026</td>
-                <td>5/30/2026</td>
-                <td>07:00 AM</td>
-                <td></td>
-              </tr>
-            </table>
+      <section class="card summary-card">
+        <div class="meta">
+          <div class="meta-card">
+            <strong>Event Code</strong>
+            <span>IG26AE</span>
           </div>
-        </section>
-
-        <section class="card section">
-          <h2>Helpful Links</h2>
-          <div class="button-group">
-            <a class="button" href="https://www.inspirationtravel.com/login" target="_blank">Manage Booking</a>
-            <a class="button secondary" href="https://www.hollandamerica.com/en/us/faq/cruise-planning/identification-passports-visa" target="_blank">Required Travel Documents</a>
-            <a class="button secondary" href="https://www.hollandamerica.com/en/us/shore-excursions" target="_blank">Holland America Excursions</a>
-            <a class="button secondary" href="https://www.inspirationtravel.com/inspiration-guides" target="_blank">Inspiration Guides</a>
+          <div class="meta-card">
+            <strong>Sailing Dates</strong>
+            <span>June 14–21, 2026</span>
           </div>
-        </section>
+          <div class="meta-card">
+            <strong>Ship</strong>
+            <span>Beyond</span>
+          </div>
+          <div class="meta-card">
+            <strong>Embarkation Port</strong>
+            <span>Seattle, Washington</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <div class="main-column">
+          <section class="card section">
+            <h2>What You Need Right Now</h2>
+            <ul>
+              <li>Make sure you write down your Inspiration & Cruise Booking Numbers.</li>
+              <li>Review passport and travel documentation requirements.</li>
+              <li>Note your final payment date.</li>
+              <li>Watch for upcoming pre-departure emails from Inspiration Travel. Make sure you provide Inspiration with a working email and confirm you can receive our emails as they sometimes go to spam first.</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Important Dates</h2>
+            <ul>
+              <li><strong>Final Payment Due:</strong> May 18, 2026</li>
+              <li><strong>Cruise Check-in starts:</strong> May 14, 2026</li>
+              <li><strong>Embarkation Day:</strong> June 14, 2026</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Travel Preparation</h2>
+            <ul>
+              <li>Check travel document requirements.</li>
+              <li>Review packing recommendations for weather, excursions, and evening dining.</li>
+              <li>Start planning for excursions, pre/post hotel accommodations, and transfers.</li>
+              <li>Review Terms and Conditions.</li>
+            </ul>
+          </section>
+
+          <section class="card section">
+            <h2>Itinerary</h2>
+            <p class="small">*Subject to change</p>
+
+            <div class="table-wrap">
+              <table class="itinerary-table">
+                <tr>
+                  <th>Day</th>
+                  <th>Location</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Arrive</th>
+                  <th>Depart</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Departing from Seattle, Washington with Scenic Cruising Puget Sound</td>
+                  <td>5/23/2026</td>
+                  <td>5/23/2026</td>
+                  <td></td>
+                  <td>03:00 PM</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Day at Sea</td>
+                  <td>5/24/2026</td>
+                  <td>5/24/2026</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Juneau, Alaska with Scenic Cruising Stephens Passage</td>
+                  <td>5/25/2026</td>
+                  <td>5/25/2026</td>
+                  <td>12:30 PM</td>
+                  <td>10:00 PM</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Scenic Cruising Hubbard Glacier</td>
+                  <td>5/26/2026</td>
+                  <td>5/26/2026</td>
+                  <td>02:00 PM</td>
+                  <td>06:00 PM</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Sitka, Alaska</td>
+                  <td>5/27/2026</td>
+                  <td>5/27/2026</td>
+                  <td>08:00 AM</td>
+                  <td>04:00 PM</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Ketchikan, Alaska</td>
+                  <td>5/28/2026</td>
+                  <td>5/28/2026</td>
+                  <td>06:30 AM</td>
+                  <td>01:00 PM</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Victoria, British Columbia, Canada</td>
+                  <td>5/29/2026</td>
+                  <td>5/29/2026</td>
+                  <td>08:00 PM</td>
+                  <td>11:59 PM</td>
+                </tr>
+                <tr>
+                  <td>→</td>
+                  <td>Concluding in Seattle, Washington</td>
+                  <td>5/30/2026</td>
+                  <td>5/30/2026</td>
+                  <td>07:00 AM</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section class="card section">
+            <h2>Helpful Links</h2>
+            <div class="button-group">
+              <a class="button" href="https://www.inspirationtravel.com/login" target="_blank">Manage Booking</a>
+              <a class="button secondary" href="https://www.hollandamerica.com/en/us/faq/cruise-planning/identification-passports-visa" target="_blank">Required Travel Documents</a>
+              <a class="button secondary" href="https://www.hollandamerica.com/en/us/shore-excursions" target="_blank">Holland America Excursions</a>
+              <a class="button secondary" href="https://www.inspirationtravel.com/inspiration-guides" target="_blank">Inspiration Guides</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="card section">
+            <h3>Need Assistance?</h3>
+            <p>Our team is here to help as you prepare for your journey.</p>
+            <p><strong>Email:</strong> booking@inspirationtravel.com<br />
+            <strong>Phone:</strong> +1 800 247 1899</p>
+            <p class="small">Business hours: Mon - Fri 8:30a - 5:00p PT</p>
+          </section>
+
+          <section class="notice section">
+            <h3>Important Note</h3>
+            <p class="small">This page is intended for general event details only and information is subject to change.</p>
+          </section>
+        </aside>
       </div>
-
-      <aside>
-        <section class="card section">
-          <h3>Need Assistance?</h3>
-          <p>Our team is here to help as you prepare for your journey.</p>
-          <p><strong>Email:</strong> booking@inspirationtravel.com<br />
-          <strong>Phone:</strong> +1 800 247 1899</p>
-          <p class="small">Business hours: Mon - Fri 8:30a - 5:00p PT</p>
-        </section>
-
-        <section class="notice section">
-          <h3>Important Note</h3>
-          <p class="small">This page is intended for general event details only and information is subject to change.</p>
-        </section>
-      </aside>
     </div>
   </main>
 
