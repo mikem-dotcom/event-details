@@ -166,40 +166,43 @@
     }
 
     .table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
- .itinerary-table {
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.itinerary-table {
+  width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
   margin-top: 12px;
   background: white;
-
-    .itinerary-table th,
-    .itinerary-table td {
-      border: 1px solid #e5e7eb;
-      padding: 12px 14px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .itinerary-table th {
-      background: #f9fafb;
-      color: #163a70;
-      font-size: 14px;
-    }
-
-    .itinerary-table td:first-child {
-      font-weight: bold;
-      width: 70px;
-      text-align: center;
-    }
-
-    .itinerary-table td:nth-child(2) {
-  width: 35%;
 }
 
+.itinerary-table th,
+.itinerary-table td {
+  border: 1px solid #e5e7eb;
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.itinerary-table th {
+  background: #f9fafb;
+  color: #163a70;
+  font-size: 14px;
+}
+
+.itinerary-table td:first-child {
+  font-weight: bold;
+  width: 70px;
+  text-align: center;
+}
+
+.itinerary-table td:nth-child(2) {
+  min-width: 320px;
+}
     footer {
       padding: 28px 20px 50px;
       color: var(--muted);
@@ -226,11 +229,15 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .page-wrap {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
+   @media (max-width: 600px) {
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .itinerary-table {
+    min-width: 700px;
+  }
+}
 
       .hero .page-wrap {
         padding-top: 32px;
