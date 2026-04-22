@@ -25,20 +25,18 @@
       line-height: 1.5;
     }
 
-    /* FULL-WIDTH BLUE BACKGROUND */
     .hero {
       background: linear-gradient(135deg, rgba(22,58,112,.95), rgba(22,58,112,.8));
       color: white;
       width: 100%;
     }
 
-    /* SAME WRAPPER FOR HEADER + MAIN */
     .page-wrap {
       max-width: 1000px;
       margin: 0 auto;
+      width: 100%;
       padding-left: 20px;
       padding-right: 20px;
-      width: 100%;
     }
 
     .hero .page-wrap {
@@ -68,22 +66,36 @@
       margin-bottom: 10px;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin-bottom: 0;
+    .hero-intro {
+      max-width: 760px;
       font-size: 18px;
+      margin-bottom: 22px;
     }
 
-    /* TOP INFO ROW */
+    /* NEW HEADER CARD */
+    .hero-card {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.10);
+    }
+
+    .hero-card h2 {
+      color: var(--navy);
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
     .meta {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-top: 24px;
     }
 
     .meta-card {
-      background: white;
+      background: #f9fafb;
       border: 1px solid #e5e7eb;
       border-radius: 14px;
       padding: 16px;
@@ -217,6 +229,10 @@
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 600px) {
@@ -241,6 +257,7 @@
       }
 
       .card,
+      .hero-card,
       .meta-card,
       .notice {
         padding: 16px;
@@ -252,7 +269,7 @@
         line-height: 1.2;
       }
 
-      .hero p {
+      .hero-intro {
         font-size: 16px;
       }
 
@@ -271,24 +288,27 @@
     <div class="page-wrap">
       <div class="eyebrow">Inspiration Travel Event Page</div>
       <h1>InGrace Ministries Cruise with Jim Scudder, Bruce Malone & Answers in Genesis</h1>
-      <p>We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
+      <p class="hero-intro">We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
 
-      <div class="meta">
-        <div class="meta-card">
-          <strong>Event Code</strong>
-          <span>IG26AE</span>
-        </div>
-        <div class="meta-card">
-          <strong>Sailing Dates</strong>
-          <span>June 14–21, 2026</span>
-        </div>
-        <div class="meta-card">
-          <strong>Ship</strong>
-          <span>Beyond</span>
-        </div>
-        <div class="meta-card">
-          <strong>Embarkation Port</strong>
-          <span>Seattle, Washington</span>
+      <div class="hero-card">
+        <h2>At a Glance</h2>
+        <div class="meta">
+          <div class="meta-card">
+            <strong>Event Code</strong>
+            <span>IG26AE</span>
+          </div>
+          <div class="meta-card">
+            <strong>Sailing Dates</strong>
+            <span>June 14–21, 2026</span>
+          </div>
+          <div class="meta-card">
+            <strong>Ship</strong>
+            <span>Beyond</span>
+          </div>
+          <div class="meta-card">
+            <strong>Embarkation Port</strong>
+            <span>Seattle, Washington</span>
+          </div>
         </div>
       </div>
     </div>
