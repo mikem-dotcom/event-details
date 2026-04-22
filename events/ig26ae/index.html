@@ -255,6 +255,22 @@
         grid-template-columns: 1fr;
       }
     }
+    @media (max-width: 600px) {
+
+  /* Make the blue section full width */
+  .hero {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 32px 16px 24px;
+  }
+
+  /* Keep the content aligned inside */
+  .hero .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+}
   </style>
 </head>
 <body>
