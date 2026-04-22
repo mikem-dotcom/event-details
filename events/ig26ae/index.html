@@ -172,7 +172,36 @@
       color: var(--muted);
       font-size: 14px;
     }
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
+.button-group a {
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .card,
+  .meta-card,
+  .notice {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .button-group {
+    grid-template-columns: 1fr;
+  }
+}
     footer {
       padding: 28px 20px 50px;
       color: var(--muted);
