@@ -5,164 +5,323 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inspiration Travel | Event Details</title>
 
+  <!-- Premium brand-style font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --navy: #163a70;
-      --gold: #caa85c;
-      --bg: #f7f8fb;
+      --navy-900: #17355f;
+      --navy-800: #234673;
+      --navy-700: #315989;
+      --gold-500: #c8a25a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --card-soft: #fbfcfe;
       --text: #1f2937;
       --muted: #6b7280;
-      --card: #ffffff;
-      --line: #e5e7eb;
+      --line: #e7ecf3;
+      --shadow: 0 10px 30px rgba(23, 53, 95, 0.08);
+      --shadow-soft: 0 4px 14px rgba(23, 53, 95, 0.06);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(49, 89, 137, 0.08), transparent 22%),
+        radial-gradient(circle at top right, rgba(200, 162, 90, 0.08), transparent 16%),
+        var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .hero {
-      background: linear-gradient(135deg, rgba(22,58,112,.95), rgba(22,58,112,.8));
-      color: white;
-      width: 100%;
+    a {
+      color: inherit;
     }
 
     .page-wrap {
-      max-width: 1000px;
-      margin: 0 auto;
       width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
-    .hero .page-wrap {
-      padding-top: 56px;
-      padding-bottom: 36px;
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(23, 53, 95, 0.97), rgba(35, 70, 115, 0.94)),
+        linear-gradient(180deg, #17355f, #234673);
+      color: white;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      box-shadow: 0 18px 40px rgba(23, 53, 95, 0.14);
     }
 
-    main .page-wrap {
-      padding-top: 28px;
-      padding-bottom: 48px;
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 440px;
+      height: 440px;
+      right: -140px;
+      top: -150px;
+      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+    }
+
+    .hero::after {
+      width: 340px;
+      height: 340px;
+      left: -110px;
+      bottom: -140px;
+      background: radial-gradient(circle, rgba(200,162,90,0.16), transparent 70%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding-top: 72px;
+      padding-bottom: 42px;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
       font-size: 12px;
-      opacity: .85;
-      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
     }
 
-    h1, h2, h3 {
-      margin-top: 0;
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: rgba(255,255,255,0.42);
     }
 
     h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      margin: 0 0 16px;
+      max-width: 980px;
+      font-size: clamp(2.35rem, 4.4vw, 4.3rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 800;
     }
 
     .hero-intro {
-      max-width: 100%;
-      font-size: 18px;
       margin: 0;
+      max-width: 780px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* SUMMARY STRIP */
+    .summary-strip {
+      margin-top: -30px;
+      position: relative;
+      z-index: 3;
     }
 
     .summary-card {
-      margin-bottom: 22px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(231,236,243,0.9);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .summary-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .summary-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--navy-900);
+    }
+
+    .summary-kicker {
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
     }
 
     .meta {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
 
     .meta-card {
-      background: #f9fafb;
+      background: linear-gradient(180deg, #ffffff, #f9fbfd);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 18px;
+      padding: 18px 16px;
       text-align: center;
-      color: black;
+      box-shadow: var(--shadow-soft);
     }
 
     .meta-card strong {
       display: block;
-      color: var(--navy);
-      font-size: 12px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      margin-bottom: 6px;
-      letter-spacing: .06em;
+      color: var(--muted);
     }
 
     .meta-card span {
-      font-size: 16px;
-      font-weight: 600;
+      display: block;
+      font-size: 17px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--navy-900);
+    }
+
+    /* LAYOUT */
+    main .page-wrap {
+      padding-top: 30px;
+      padding-bottom: 54px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 22px;
+      grid-template-columns: minmax(0, 2fr) minmax(290px, 1fr);
+      gap: 24px;
+      align-items: start;
     }
 
     .main-column > .section + .section,
     .side-column > .section + .section {
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--navy-900);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--navy-900);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
     }
 
     ul {
-      padding-left: 20px;
+      margin: 0;
+      padding-left: 22px;
     }
 
+    li + li {
+      margin-top: 8px;
+    }
+
+    /* SECTION TAG */
+    .section-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(49, 89, 137, 0.08);
+      color: var(--navy-800);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* BUTTONS */
     .button-group {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .button-group a {
-      text-align: center;
+      gap: 12px;
+      margin-top: 8px;
     }
 
     .button {
-      display: inline-block;
-      background: var(--navy);
-      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 16px;
+      border-radius: 16px;
       text-decoration: none;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: bold;
-      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+      color: white;
     }
 
     .button.secondary {
       background: white;
-      color: var(--navy);
-      border: 1px solid var(--navy);
+      color: var(--navy-900);
+      border: 1px solid #d8e1eb;
     }
 
-    .notice {
-      background: #fff8eb;
-      border: 1px solid #f2dfb6;
-      border-radius: 14px;
-      padding: 16px;
-    }
-
+    /* ITINERARY */
     .small {
       color: var(--muted);
       font-size: 14px;
@@ -171,113 +330,189 @@
     .itinerary-cards {
       display: grid;
       gap: 14px;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .itinerary-stop {
+      position: relative;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
-      background: #f9fafb;
+      border-radius: 20px;
+      padding: 18px 18px 18px 18px;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      box-shadow: var(--shadow-soft);
     }
 
-    .itinerary-stop h3 {
-      margin: 10px 0 10px;
-      color: var(--navy);
-      font-size: 18px;
-    }
-
-    .itinerary-stop p {
-      margin: 6px 0;
+    .itinerary-stop::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--gold-500), var(--navy-700));
     }
 
     .day-badge {
       display: inline-block;
-      background: var(--navy);
+      margin-left: 8px;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--navy-900);
       color: white;
       font-size: 12px;
-      font-weight: bold;
-      padding: 6px 10px;
-      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: .04em;
     }
 
+    .itinerary-stop h3 {
+      margin: 2px 0 10px 8px;
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+
+    .itinerary-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-left: 8px;
+      margin-top: 10px;
+    }
+
+    .itinerary-meta-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(49, 89, 137, 0.05);
+      border: 1px solid rgba(49, 89, 137, 0.08);
+    }
+
+    .itinerary-meta-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .itinerary-meta-item span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy-900);
+    }
+
+    /* SIDEBAR */
+    .notice {
+      background: linear-gradient(180deg, #fff8eb, #fff4da);
+      border: 1px solid #f1ddae;
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(49, 89, 137, 0.05);
+      border: 1px solid rgba(49, 89, 137, 0.08);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
     footer {
-      padding: 28px 20px 50px;
+      padding: 34px 20px 54px;
       color: var(--muted);
       text-align: center;
+      font-size: 14px;
     }
 
-    @media (max-width: 900px) {
-      h1 {
-        white-space: normal;
-      }
-    }
-
-    @media (max-width: 800px) {
-      h1 {
-        font-size: 30px;
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .meta {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .grid {
         grid-template-columns: 1fr;
       }
 
-      .meta {
-        grid-template-columns: repeat(2, 1fr);
+      .side-column {
+        display: grid;
+        gap: 24px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       .page-wrap {
         padding-left: 16px;
         padding-right: 16px;
       }
 
       .hero .page-wrap {
-        padding-top: 32px;
-        padding-bottom: 24px;
+        padding-top: 40px;
+        padding-bottom: 26px;
       }
 
       main .page-wrap {
-        padding-top: 20px;
-        padding-bottom: 32px;
-      }
-
-      .meta {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .card,
-      .meta-card,
-      .notice,
-      .itinerary-stop {
-        padding: 16px;
-        border-radius: 12px;
+        padding-top: 22px;
+        padding-bottom: 36px;
       }
 
       h1 {
-        font-size: 28px;
-        line-height: 1.2;
+        font-size: 2.1rem;
+        line-height: 1.08;
+        white-space: normal;
       }
 
       .hero-intro {
         font-size: 16px;
       }
 
-      body {
-        font-size: 16px;
+      .summary-card,
+      .card,
+      .notice {
+        padding: 18px;
+        border-radius: 20px;
       }
 
       .button-group {
         grid-template-columns: 1fr;
+      }
+
+      .itinerary-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-head {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="page-wrap">
+    <div class="page-wrap hero-inner">
       <div class="eyebrow">Inspiration Travel Event Page</div>
       <h1>Seeds of Greatness Alaska Cruise with Jerome & Lisa Lewis</h1>
       <p class="hero-intro">We’re honored to welcome you on this upcoming journey. This page includes the most important details, planning reminders, and helpful links for your event.</p>
@@ -287,23 +522,30 @@
   <main>
     <div class="page-wrap">
 
-      <section class="card summary-card">
-        <div class="meta">
-          <div class="meta-card">
-            <strong>Event Code</strong>
-            <span>SOG26AE</span>
+      <section class="summary-strip">
+        <div class="summary-card">
+          <div class="summary-head">
+            <h2 class="summary-title">At a Glance</h2>
+            <div class="summary-kicker">Travel with purpose • Sail in confidence</div>
           </div>
-          <div class="meta-card">
-            <strong>Sailing Dates</strong>
-            <span>June 6–13, 2026</span>
-          </div>
-          <div class="meta-card">
-            <strong>Ship</strong>
-            <span>Eurodam - Holland America</span>
-          </div>
-          <div class="meta-card">
-            <strong>Embarkation Port</strong>
-            <span>Seattle, WA</span>
+
+          <div class="meta">
+            <div class="meta-card">
+              <strong>Event Code</strong>
+              <span>SOG26AE</span>
+            </div>
+            <div class="meta-card">
+              <strong>Sailing Dates</strong>
+              <span>June 6–13, 2026</span>
+            </div>
+            <div class="meta-card">
+              <strong>Ship</strong>
+              <span>Eurodam • Holland America</span>
+            </div>
+            <div class="meta-card">
+              <strong>Embarkation Port</strong>
+              <span>Seattle, WA</span>
+            </div>
           </div>
         </div>
       </section>
@@ -312,6 +554,7 @@
         <div class="main-column">
 
           <section class="card section">
+            <div class="section-label">Before You Go</div>
             <h2>What You Need Right Now</h2>
             <ul>
               <li>Make sure you write down your Inspiration & Cruise Booking Numbers.</li>
@@ -322,6 +565,7 @@
           </section>
 
           <section class="card section">
+            <div class="section-label">Key Dates</div>
             <h2>Important Dates</h2>
             <ul>
               <li><strong>Final Payment Due:</strong> March 3, 2026</li>
@@ -331,6 +575,7 @@
           </section>
 
           <section class="card section">
+            <div class="section-label">Planning Tips</div>
             <h2>Travel Preparation</h2>
             <ul>
               <li>Check travel document requirements.</li>
@@ -341,76 +586,148 @@
           </section>
 
           <section class="card section">
+            <div class="section-label">Sailing Schedule</div>
             <h2>Itinerary</h2>
-            <p class="small">*Subject to change</p>
+            <p class="small">Subject to change.</p>
 
             <div class="itinerary-cards">
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 1</div>
                 <h3>Departing from Seattle, Washington with Scenic Cruising Puget Sound</h3>
-                <p><strong>Date:</strong> 6/6/2026</p>
-                <p><strong>Depart:</strong> 03:00 PM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/6/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Depart</strong>
+                    <span>03:00 PM</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 2</div>
                 <h3>Day at Sea</h3>
-                <p><strong>Date:</strong> 6/7/2026</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/7/2026</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 3</div>
                 <h3>Juneau, Alaska with Scenic Cruising Stephens Passage</h3>
-                <p><strong>Date:</strong> 6/8/2026</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/8/2026</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 4</div>
                 <h3>Icy Strait Point, Alaska with Scenic Cruising Glacier Bay</h3>
-                <p><strong>Date:</strong> 6/9/2026</p>
-                <p><strong>Arrive:</strong> 06:00 PM</p>
-                <p><strong>Depart:</strong> 10:00 PM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/9/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Arrive</strong>
+                    <span>06:00 PM</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Depart</strong>
+                    <span>10:00 PM</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 5</div>
                 <h3>Sitka, Alaska</h3>
-                <p><strong>Date:</strong> 6/10/2026</p>
-                <p><strong>Arrive:</strong> 08:00 AM</p>
-                <p><strong>Depart:</strong> 04:00 PM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/10/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Arrive</strong>
+                    <span>08:00 AM</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Depart</strong>
+                    <span>04:00 PM</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 6</div>
                 <h3>Ketchikan, Alaska</h3>
-                <p><strong>Date:</strong> 6/11/2026</p>
-                <p><strong>Arrive:</strong> 06:30 AM</p>
-                <p><strong>Depart:</strong> 01:00 PM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/11/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Arrive</strong>
+                    <span>06:30 AM</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Depart</strong>
+                    <span>01:00 PM</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Day 7</div>
                 <h3>Victoria, British Columbia, Canada</h3>
-                <p><strong>Date:</strong> 6/12/2026</p>
-                <p><strong>Arrive:</strong> 08:00 PM</p>
-                <p><strong>Depart:</strong> 11:59 PM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/12/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Arrive</strong>
+                    <span>08:00 PM</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Depart</strong>
+                    <span>11:59 PM</span>
+                  </div>
+                </div>
               </div>
 
               <div class="itinerary-stop">
                 <div class="day-badge">Final Day</div>
                 <h3>Concluding in Seattle, Washington</h3>
-                <p><strong>Date:</strong> 6/13/2026</p>
-                <p><strong>Arrive:</strong> 07:00 AM</p>
+                <div class="itinerary-meta">
+                  <div class="itinerary-meta-item">
+                    <strong>Date</strong>
+                    <span>6/13/2026</span>
+                  </div>
+                  <div class="itinerary-meta-item">
+                    <strong>Arrive</strong>
+                    <span>07:00 AM</span>
+                  </div>
+                </div>
               </div>
 
             </div>
           </section>
 
           <section class="card section">
+            <div class="section-label">Helpful Resources</div>
             <h2>Helpful Links</h2>
             <div class="button-group">
-              <a class="button" href="https://www.inspirationtravel.com/login" target="_blank">Manage Booking</a>
+              <a class="button primary" href="https://www.inspirationtravel.com/login" target="_blank">Manage Booking</a>
               <a class="button secondary" href="#" target="_blank">Required Travel Documents</a>
               <a class="button secondary" href="#" target="_blank">Excursions</a>
               <a class="button secondary" href="#" target="_blank">Inspiration Guides</a>
@@ -421,11 +738,24 @@
 
         <aside class="side-column">
           <section class="card section">
+            <div class="section-label">Support</div>
             <h3>Need Assistance?</h3>
             <p>Our team is here to help as you prepare for your journey.</p>
-            <p><strong>Email:</strong> booking@inspirationtravel.com<br />
-            <strong>Phone:</strong> +1 800 247 1899</p>
-            <p class="small">Business hours: Mon - Fri 8:30a - 5:00p PT</p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Email</strong>
+                booking@inspirationtravel.com
+              </div>
+              <div class="contact-item">
+                <strong>Phone</strong>
+                +1 800 247 1899
+              </div>
+              <div class="contact-item">
+                <strong>Business Hours</strong>
+                Mon - Fri 8:30a - 5:00p PT
+              </div>
+            </div>
           </section>
 
           <section class="notice section">
